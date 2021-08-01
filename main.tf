@@ -67,7 +67,7 @@ module "elb_http" {
 
   name = "banking-solution-elb"
 
-  subnets         = ["subnet-0c03fbb298f4b02b3"] #hardcoded
+  subnets         = ["<subnet-id>"] ##fetch subnet ID from a list from network module output 
   security_groups = ["${module.security-group_frontend-lb-http.this_security_group_id}"]
   internal        = false
 
@@ -90,7 +90,7 @@ module "elb_http" {
 
   // ELB attachments
   number_of_instances = 2
-  instances           = ["i-00cf4ad45862bfe33", "i-0dd784e14e42978dd"] #hardcoded
+  instances           = ["<instance-id-1>", "<instance-id-2>"] ##fetch instance ID's from a list from ec2-instance module output 
 
   tags = {
     App = "BankingSolution"
